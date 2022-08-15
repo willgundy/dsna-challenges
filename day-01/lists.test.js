@@ -39,3 +39,14 @@ test('multiplesOfN', () => {
     const seventyFive = multiplesOfN(75, 50);
     expect(seventyFive).toEqual([]);
 });
+
+//reverse sentence of words
+
+function reverseWords(sentence) {
+    return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+}
+
+test('reverseWords', () => {
+    expect(reverseWords('This is a sentence.')).toEqual('sihT si a .ecnetnes');
+    expect(reverseWords('alchemy rocks gold')).toEqual('ymehcla skcor dlog');
+});
