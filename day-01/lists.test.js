@@ -1,5 +1,4 @@
 // fizzbuzz
-
 function fizzbuzz(n) {
     let array = [];
     for(i=1; i <= n; i++) {
@@ -22,7 +21,6 @@ test('fizzbuzz', () => {
 });
 
 //multiples of n
-
 function multiplesOfN(n, max) {
     let array = [];
     for(i=1; i <= max; i++) {
@@ -41,7 +39,6 @@ test('multiplesOfN', () => {
 });
 
 //reverse sentence of words
-
 function reverseWords(sentence) {
     return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
 }
@@ -50,3 +47,33 @@ test('reverseWords', () => {
     expect(reverseWords('This is a sentence.')).toEqual('sihT si a .ecnetnes');
     expect(reverseWords('alchemy rocks gold')).toEqual('ymehcla skcor dlog');
 });
+
+//title case each word
+function titleCase(sentence) {
+    return sentence.split(' ').map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }).join(' ');
+}
+
+test('upper case each word', () => {
+    expect(titleCase('alchemy ROCKS goLD')).toEqual('Alchemy Rocks Gold');
+});
+
+//oddish vs evenish
+function oddishOrEvenish(number) {
+    return number.split('').reduce((acc, curr) => ~~acc + ~~curr, 0) % 2 === 0 ? 'Evenish' : 'Oddish';
+}
+
+test('oddish vs evenish', () => {
+    expect(oddishOrEvenish('121')).toEqual('Evenish');
+    expect(oddishOrEvenish('41')).toEqual('Oddish');
+});
+
+//Implement `at`
+function at(arr, index) {
+
+}
+
+// test('Implement `at`', () => {
+//     expect(at(arr, index)).toEqual('');
+// });
