@@ -1,0 +1,27 @@
+{
+  "name": "dsna-challenges",
+  "version": "1.0.0",
+  "description": "Repository for code challenges",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willgundy/dsna-challenges.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willgundy/dsna-challenges/issues"
+  },
+  "homepage": "https://github.com/willgundy/dsna-challenges#readme",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  },
+  "dependencies": {
+    "eslint": "^8.22.0",
+    "prettier": "^2.7.1"
+  }
+}

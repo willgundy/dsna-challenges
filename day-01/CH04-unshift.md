@@ -21,6 +21,13 @@ Write a function `unshift` that takes an array and a new item, and:
 
 ```js
 function unshift(arr, item) {
+    for(let i = arr.length - 1; i >= 0; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[0] = item;
+    return arr.length;
+}
+
 ```
 
 > **You can assume valid inputs**
