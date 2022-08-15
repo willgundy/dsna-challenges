@@ -1,7 +1,7 @@
 function inventoryChecker(inventory, item) {
-    const count = inventory[item.itemName];
-    if(count > 5) return `plenty of inventory, ${count} ${item.itemName} available`;
-    return `running low on ${item.itemName}, only ${count} available`;
+    return inventory[item.itemName] > 5 ? 
+    `plenty of inventory, ${inventory[item.itemName]} ${item.itemName} available`:
+    `running low on ${item.itemName}, only ${inventory[item.itemName]} available`;
 }
 
 test ('inventoryChecker', () => {
@@ -13,16 +13,8 @@ test ('inventoryChecker', () => {
         watermelons: 3,
     };
 
-    let item = {
-        itemName: 'apples',
-    }
-
-    let item2 = {
-        itemName: 'watermelons',
-    }
-
-    const check1 = inventoryChecker(inventory, item);
-    const check2 = inventoryChecker(inventory, item2);
+    const check1 = inventoryChecker(inventory, { itemName: 'apples' });
+    const check2 = inventoryChecker(inventory, { itemName: 'watermelons' });
 
     expect(check1).toBe('plenty of inventory, 20 apples available');
     expect(check2).toBe('running low on watermelons, only 3 available');
