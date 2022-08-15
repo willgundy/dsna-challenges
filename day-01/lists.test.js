@@ -71,9 +71,22 @@ test('oddish vs evenish', () => {
 
 //Implement `at`
 function at(arr, index) {
-
+    return index > 0 ? arr[index] : arr[arr.length - Math.abs(index)];
 }
 
-// test('Implement `at`', () => {
-//     expect(at(arr, index)).toEqual('');
-// });
+test('Implement `at`', () => {
+    expect(at(['a', 'b', 'c', 'd', 'e'], 1)).toEqual('b');
+    expect(at(['a', 'b', 'c', 'd', 'e'], -2)).toEqual('d');
+});
+
+//Anagrams
+function anagrams(wordOne, wordTwo) {
+    const arrayOne = wordOne.split('').sort();
+    const arrayTwo = wordTwo.split('').sort();
+    return arrayOne.join('') === arrayTwo.join('');
+}
+
+test('Anagrams', () => {
+    expect(anagrams('superintended', 'unpredestined')).toEqual(true);
+    expect(anagrams('pictorialness', 'documentarily')).toEqual(false);
+});
