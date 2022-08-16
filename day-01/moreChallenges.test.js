@@ -51,3 +51,20 @@ test('convenience store change enough', () => {
     expect(uniqueWords(["gin","zen","gig","msg"])).toEqual(2);
     expect(uniqueWords(["a"])).toEqual(1);
 });
+
+//CH: Pluralize Words!
+
+function pluralize(word) {
+    const array = [];
+    const wordCount = word.reduce((acc, curr) => {
+        return {...acc, [curr]: (acc[curr] || 0) + 1};
+    }, {});
+    Object.keys(wordCount).forEach(key => wordCount[key] > 1 ? array.push(key + 's') : array.push(key));
+    return array;
+}
+
+test('Pluralize Words!', () => {
+    expect(pluralize(["cow", "pig", "cow", "cow"])).toEqual(["cows", "pig"]);
+    expect(pluralize(["table", "table", "table"])).toEqual(["tables"]);
+    expect(pluralize(["chair", "pencil", "arm"])).toEqual(["chair", "pencil", "arm"]);
+});
