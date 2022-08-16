@@ -90,3 +90,29 @@ test('Anagrams', () => {
     expect(anagrams('superintended', 'unpredestined')).toEqual(true);
     expect(anagrams('pictorialness', 'documentarily')).toEqual(false);
 });
+
+//Unique String
+// function uniqueString(strings) {
+//     return [... new Set(strings.map())];
+// }
+
+// test('Unique String', () => {
+//     expect(uniqueString([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ])).toEqual('BbBb');
+//     expect(uniqueString([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ])).toEqual('foo');
+// });
+
+
+//Unique Char
+function uniqueChar(string) {
+    const characters = string.split('').reduce((acc, curr) => {
+        return {...acc, [curr]: (acc[curr] || 0) + 1};
+    }, {});
+    const array = Object.keys(characters).filter(key => characters[key] === 1);
+    return array[0] ? array[0] : '_';
+}
+
+test('Unique String', () => {
+    expect(uniqueChar('abdacabad')).toEqual('c');
+    expect(uniqueChar('abacabaabacaba')).toEqual('_');
+    expect(uniqueChar('abacabad')).toEqual('c');
+});
