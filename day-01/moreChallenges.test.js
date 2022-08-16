@@ -34,3 +34,20 @@ test('convenience store change enough', () => {
     expect(countJewels("aA", "aAAbbbb")).toEqual(3);
     expect(countJewels("z", "ZZ")).toEqual(0);
 });
+
+
+//Unique Words
+function uniqueWords(words) {
+    const morseCode = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."];
+    const morse = words.map(word => {
+        return word.split('').map(letter => {
+            return morseCode[letter.charCodeAt(0) - 97];
+        }).join('');
+    });
+    return new Set(morse).size;
+}
+
+test('convenience store change enough', () => {
+    expect(uniqueWords(["gin","zen","gig","msg"])).toEqual(2);
+    expect(uniqueWords(["a"])).toEqual(1);
+});
