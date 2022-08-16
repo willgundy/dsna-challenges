@@ -53,7 +53,6 @@ function isHappy(n) {
     const seen = new Set();
     while (n !== 1) {
         if (seen.has(n)) {
-            console.log(n, seen);
             return false;
         }
         seen.add(n);
