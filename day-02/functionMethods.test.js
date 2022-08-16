@@ -54,3 +54,15 @@ test('largest even', () => {
     expect(largestEven([0, 19, 18973623])).toBe(0);
     expect(largestEven([1, 3, 5, 7])).toBe(-1);
 })
+
+//recursive string repeat
+function repeat(text, n) {
+    return n > 0 ? text + repeat(text, n - 1) : '';
+}
+
+test('repeat text', () => {
+    expect(repeat('ab', 3)).toBe('ababab');
+    expect(repeat('kiwi', 1)).toBe('kiwi');
+    expect(repeat('cherry', 0)).toBe('');
+    expect(repeat('hello', 10)).toBe('hellohellohellohellohellohellohellohellohellohello');
+});

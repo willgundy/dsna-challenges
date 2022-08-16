@@ -92,14 +92,17 @@ test('Anagrams', () => {
 });
 
 //Unique String
-// function uniqueString(strings) {
-//     return [... new Set(strings.map())];
-// }
+function uniqueString(strings) {
+    const sortedStrings = strings.map(string => string.toLowerCase().split('').sort().join('')).sort();
+    const uniqueLetter = sortedStrings[0].charAt(0) !== sortedStrings[1].charAt(0) ? sortedStrings[0].charAt(0) : sortedStrings[sortedStrings.length - 1].charAt(0);
+    const index = strings.findIndex(string => string.toLowerCase().includes(uniqueLetter));
+    return strings[index];
+}
 
-// test('Unique String', () => {
-//     expect(uniqueString([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ])).toEqual('BbBb');
-//     expect(uniqueString([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ])).toEqual('foo');
-// });
+test('Unique String', () => {
+    expect(uniqueString([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ])).toEqual('BbBb');
+    expect(uniqueString([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ])).toEqual('foo');
+});
 
 
 //Unique Char
