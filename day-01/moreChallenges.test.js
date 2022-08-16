@@ -68,3 +68,35 @@ test('Pluralize Words!', () => {
     expect(pluralize(["table", "table", "table"])).toEqual(["tables"]);
     expect(pluralize(["chair", "pencil", "arm"])).toEqual(["chair", "pencil", "arm"]);
 });
+
+//progress days
+
+function progressDays(miles) {
+    let count = 0;
+    for (let i = 0; i < miles.length; i++) {
+        if (miles[i + 1] > miles[i]) {
+            count++;
+        }
+    }
+    return count;
+}
+
+test('progress days', () => {
+    expect(progressDays([10, 11, 12, 9, 10])).toEqual(3);
+    expect(progressDays([6, 5, 4, 3, 2, 9])).toEqual(1);
+    expect(progressDays([9, 9])).toEqual(0);
+});
+
+
+//total volume
+function totalVolume(...boxes) {
+    return boxes.reduce((acc, curr) => {
+        return acc + curr[0] * curr[1] * curr[2];
+    } , 0);
+};
+
+test('total volume', () => {
+    expect(totalVolume([4, 2, 4], [3, 3, 3], [1, 1, 2], [2, 1, 1])).toEqual(63);
+    expect(totalVolume([2, 2, 2], [2, 1, 1])).toEqual(10);
+    expect(totalVolume([1, 1, 1])).toEqual(1);
+});
