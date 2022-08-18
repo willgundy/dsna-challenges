@@ -43,6 +43,20 @@ test('stack', () => {
     expect(stack.pop()).toBe(undefined);
 });
 
+function reverse(array) {
+    const stack = new Stack(array);
+    let reversedArray = [];
+    while (array.length) {
+        reversedArray.push(stack.pop());
+    }
+    return reversedArray;
+}
+
+test('reverse', () => { 
+    expect(reverse([1, 2, 3, 4, 5])).toEqual([5, 4, 3, 2, 1]);
+    expect(reverse([12, 3, 5, 7])).toEqual([7, 5, 3, 12]);
+});
+
 function checkSyntax(code) {
     const stack = new Stack();
     const openers = ['(', '[', '{'];
