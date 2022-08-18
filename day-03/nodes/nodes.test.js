@@ -14,19 +14,13 @@ class BinaryTreeNode {
     }
 
     add(node) {
-        if(!this.right) return this.right = node;
-        
-        return this.right.add(node);
-    }
-
-    getList() {
-        let list = [];
-        let current = this;
-        while (current) {
-            list.push(current.value);
-            current = current.right;
+        if (node.value < this.value) {
+            if(!this.left) return this.left = node;
+            return this.left.add(node);
+        } else {
+            if(!this.right) return this.right = node;
+            return this.right.add(node);
         }
-        return list.join(', ');
     }
 }
 
@@ -40,7 +34,9 @@ test('add node', () => {
     B.add(D);
     B.add(C);
 
-    expect(B.getList()).toBe('B, A, D, C');
+    expect(B.left.value).toBe('A');
+    expect(B.right.value).toBe('D');
+    expect(B.right.left.value).toBe('C');
 });
 
 class LinkedListNode {
@@ -123,3 +119,16 @@ test('person tree', () => {
 
     expect(John.findPerson('John')).toEqual({name: 'John'});
 });
+
+class nodeTraverse {
+    constructor(value) {
+        this.value = value;
+        this.children = [];
+    }
+  
+    add(node) {
+        if(!this.right) return this.right = node;
+        
+        return this.right.add(node);
+    }
+}
