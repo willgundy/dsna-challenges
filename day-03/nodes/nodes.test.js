@@ -126,9 +126,46 @@ class nodeTraverse {
         this.children = [];
     }
   
-    add(node) {
-        if(!this.right) return this.right = node;
-        
-        return this.right.add(node);
+    traverse(node, indents = 0, string = '') {
+        string += '\n' + ' '.repeat(indents) + node.value;
+        console.log(string);
+        node.children.reduce((acc, child) => {
+            this.traverse(child, indents + 1, string)}, string);
     }
 }
+
+test('node traverse', () => {
+    const D = {
+        value: 'D',
+        children: []
+      };
+      
+      const B = {
+        value: 'B',
+        children: [D]
+      };
+      
+      const C = {
+        value: 'C',
+        children: []
+      };
+      
+      const F = {
+        value: 'F',
+        children: []
+      };
+      
+      const E = {
+        value: 'E',
+        children: [F]
+      };
+      
+      const A = {
+        value: 'A',
+        children: [B, C, E]
+      };
+
+    const tree = new nodeTraverse(A);
+
+    tree.traverse(A);
+});
