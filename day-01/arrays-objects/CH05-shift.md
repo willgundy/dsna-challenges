@@ -22,6 +22,13 @@ Write a function `shift` that takes an array, and:
 
 ```js
 function shift(arr) {
+    const value = arr[0];
+    for(let i = 0; i < arr.length - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    arr.length = arr.length - 1;
+    return value;
+}
 ```
 
 > **You can assume valid inputs**
