@@ -20,6 +20,9 @@ Write a function `push` that takes an array and a new item, and:
 
 ```js
 function push(arr, item) {
+    arr[arr.length] = item;
+    return arr.length;
+}
 ```
 
 > **You can assume valid inputs**

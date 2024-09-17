@@ -21,6 +21,11 @@ Write a function `pop` that takes an array, and:
 
 ```js
 function pop(arr) {
+    const value = arr[arr.length - 1];
+    arr[arr.length - 1] = null;
+    return value;
+}
+
 ```
 
 > **You can assume valid inputs**
